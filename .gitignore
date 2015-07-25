@@ -1,3 +1,6 @@
 *.ppk
 .vagrant
 selenium-tests/target
+selenium-tests/.classpath
+selenium-tests/.project
+selenium-tests/.settings/
