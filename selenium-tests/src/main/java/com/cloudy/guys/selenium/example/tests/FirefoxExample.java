@@ -16,9 +16,9 @@ import com.cloudy.guys.selenium.example.page.objects.Home;
 
 public class FirefoxExample {
 	
-	private static final String hub = "http://localhost:4444/wd/hub";
+	private static final String hub = "http://127.0.0.1:4444/wd/hub";
 	private static final int wait = 30;
-	private static boolean useGrid = false;
+	private static boolean useGrid = true;
 	
 	public void simpleTest(){
 		WebDriver driver = null;
