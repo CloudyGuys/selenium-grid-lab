@@ -42,7 +42,7 @@ $node_home="$selenium_base_dir/node"
   service { 'selenium-node':
     ensure     => running,
     hasstatus  => false,
-    start      => "$node_home/node.sh start $selenium_base_dir $jar_name",
+    start      => "/etc/profile.d/selenium.sh && $node_home/node.sh start $selenium_base_dir $jar_name",
 	status     => "$node_home/node.sh status",
     require => File [ "/etc/profile.d/selenium.sh" ]
   }
