@@ -18,13 +18,25 @@ $node_home="$selenium_base_dir/node"
   
   file { "$node_home/node.json" :
 	ensure => present,
+	owner => "vagrant",
+	group => "vagrant",
 	source => "puppet:///modules/selenium-node/node.json",
   }
   
   file { "$node_home/node.sh" :
 	ensure => present,
+	owner => "vagrant",
+	group => "vagrant",
 	source => "puppet:///modules/selenium-node/node.sh",
 	require => File [ "$node_home/node.json" ]
+  }
+  
+  file { "/etc/profile.d/selenium.sh" :
+	ensure => present,
+	owner => "root",
+	group => "root",
+	source => "puppet:///modules/selenium-node/selenium.sh",
+	require => File [ "$node_home/node.sh" ]
   }
   
   service { 'selenium-node':
@@ -32,7 +44,7 @@ $node_home="$selenium_base_dir/node"
     hasstatus  => false,
     start      => "$node_home/node.sh start $selenium_base_dir $jar_name",
 	status     => "$node_home/node.sh status",
-    require => File [ "$node_home/node.sh" ]
+    require => File [ "/etc/profile.d/selenium.sh" ]
   }
  
 }
