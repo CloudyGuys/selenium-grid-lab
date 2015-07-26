@@ -3,11 +3,6 @@ This setup assumes you have Vagrant installed locally and uses VirtualBox as the
 * vagrant up
 * You will be able to access the hub at http://127.0.0.1:4444/grid/console
 
-### Running the Selenium Tests
-By default, the tests will run against your local Selenium Grid.  It assumes you have Java and Maven installed and configured.  To kick the tests off:
-* cd selenium-tests
-* mvn test
-
 ### Configuring Putty to connect to a Vagrant VM.
 * Generating the ppk key
   * Using PuttyGen convert the %USERPROFILE%\.vagrant.d\insecure_private_key to a .ppk file
